@@ -70,10 +70,6 @@ export const mediaTrackContainer = {
   testAlign: "center",
 };
 
-export const btn = {
-  margin: "auto",
-};
-
 export const MaxWidthDiv = styled.div(
   css({
     maxWidth: "500px",
@@ -82,18 +78,3 @@ export const MaxWidthDiv = styled.div(
     justifyContent: "center",
   })
 );
-
-export const btnContainer = {
-  display: "flex",
-  flexGrow: 1,
-  justifyContent: "center",
-  margin: "10px 20px",
-};
-
-export const btnRow = {
-  maxHeight: 80,
-  display: "flex",
-  justifyContent: "center",
-  marginTop: 10,
-  marginBottom: 10,
-};

@@ -31,12 +31,12 @@ import {
   FooterDiv,
   MaxWidthDiv,
   ParticipantContainer,
-} from "./styles";
+} from "../../utils/styles";
 import {
   attachLocalTracks,
   attachRemoteTracks,
   detachTracks,
-} from "../../utils";
+} from "../../utils/helper";
 import PostVideoRoom from "../PostVideoRoom/PostVideoRoom";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_VIDEO_APP_URL;
@@ -59,6 +59,7 @@ export default function VideoRoom() {
   const [buttonText, setButtonText] = useState("Join Video Room");
   const [agentConnected, setAgentConnected] = useState<boolean>(false);
   const [joinError, setJoinError] = useState<boolean>(false);
+  const [syncError, setSyncError] = useState<string | undefined>("");
 
   async function process_sync_data_update(data: any) {
     if (!activeRoom && data.room) {
@@ -70,7 +71,7 @@ export default function VideoRoom() {
 
   async function connect_sync(code: any) {
     // Obtain a JWT access token
-    console.log(BACKEND_URL);
+    setSyncError("");
     await fetch(`${BACKEND_URL}/client-get-sync-token?code=${code}`)
       .then((response) => response.json())
       .then((response) => {
@@ -92,6 +93,7 @@ export default function VideoRoom() {
       })
       .catch((error) => {
         console.error("Unexpected error", error);
+        setSyncError(error);
         setIsLoading(false);
       });
   }
@@ -295,7 +297,7 @@ export default function VideoRoom() {
                       fontSize="fontSize70"
                       fontWeight="fontWeightMedium"
                     >
-                      Video Room: {code}
+                      Video Room - {code}
                     </Text>
                   </MediaBody>
                 </MediaObject>
@@ -303,16 +305,28 @@ export default function VideoRoom() {
                   <Card padding="space100">
                     <Flex vertical hAlignContent={"center"}>
                       {joinError && (
-                        <Flex marginBottom={"space20"}>
+                        <Flex marginBottom={"space60"}>
                           <Text
                             as="p"
-                            fontSize="fontSize20"
+                            fontSize="fontSize60"
                             fontWeight="fontWeightMedium"
                             color="colorText"
                           >
                             {agentConnected
                               ? "Agent connected."
                               : "Waiting for agent to join..."}
+                          </Text>
+                        </Flex>
+                      )}
+                      {syncError && (
+                        <Flex marginBottom={"space60"}>
+                          <Text
+                            as="p"
+                            fontSize="fontSize60"
+                            fontWeight="fontWeightMedium"
+                            color="colorTextError"
+                          >
+                            Error: {syncError}
                           </Text>
                         </Flex>
                       )}
@@ -358,7 +372,7 @@ export default function VideoRoom() {
             </MediaFigure>
             <MediaBody as="div">
               <Text as="p" fontSize="fontSize70" fontWeight="fontWeightMedium">
-                Video Room: {code}
+                Video Room - {code}
               </Text>
             </MediaBody>
           </MediaObject>

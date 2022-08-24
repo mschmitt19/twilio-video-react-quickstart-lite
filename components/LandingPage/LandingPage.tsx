@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { styled, css } from "@twilio-paste/styling-library";
 import { Text } from "@twilio-paste/text";
 import { Flex } from "@twilio-paste/core/flex";
 import { Card } from "@twilio-paste/core/card";
@@ -14,29 +13,7 @@ import {
   Button,
 } from "@twilio-paste/core";
 import { useRouter } from "next/router";
-
-const CenterContent = styled.div(
-  css({
-    paddingX: "space40",
-    paddingTop: "space200",
-    paddingBottom: "space60",
-    width: "100%",
-    minHeight: "100vh",
-    justifyContent: "center",
-    flexDirection: "column",
-    backgroundColor: "colorBackground",
-    alignItems: "center",
-    alignContent: "center",
-    horizontalAlign: "center",
-  })
-);
-
-const MaxWidthDiv = styled.div(
-  css({
-    maxWidth: "500px",
-    marginTop: "space40",
-  })
-);
+import { CenterContent, MaxWidthDiv } from "../../utils/styles";
 
 export default function LandingPage() {
   const router = useRouter();
