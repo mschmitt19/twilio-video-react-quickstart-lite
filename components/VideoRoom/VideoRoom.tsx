@@ -181,17 +181,17 @@ export default function VideoRoom() {
     });
 
     // when a participant adds a track, attach it
-    room.on("trackSubscribed", (track, publication, participant) => {
+    room.on("trackSubscribed", (track, participant) => {
       console.log(
-        `IncomingVideoComponent: ${participant.identity} added track: ${track.kind}`
+        `IncomingVideoComponent: ${participant} added track: ${track.kind}`
       );
       attachRemoteTracks([track], remoteMedia);
     });
 
     // When a Participant removes a Track, detach it from the DOM.
-    room.on("trackUnsubscribed", (track, publication, participant) => {
+    room.on("trackUnsubscribed", (track, participant) => {
       console.log(
-        `IncomingVideoComponent: ${participant.identity} removed track: ${track.kind}`
+        `IncomingVideoComponent: ${participant} removed track: ${track.kind}`
       );
       detachTracks([track]);
     });

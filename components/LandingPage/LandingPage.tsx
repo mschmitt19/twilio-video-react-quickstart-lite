@@ -18,7 +18,8 @@ import { CenterContent, MaxWidthDiv } from "../../utils/styles";
 export default function LandingPage() {
   const router = useRouter();
   const [input, setInput] = useState("");
-  const handleSubmit = (e: any) => {
+
+  const handleSubmit = () => {
     console.log(input);
     if (!!input) {
       router.push(`/?code=${input}`);

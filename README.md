@@ -1,22 +1,80 @@
-# Example app with [Paste](https://paste.twilio.design) and Typescript
+<a  href="https://www.twilio.com">
+<img  src="https://static0.twilio.com/marketing/bundles/marketing/img/logos/wordmark-red.svg"  alt="Twilio"  width="250"  />
+</a>
 
-This example features how to use [Paste](https://paste.twilio.design) as the component library within a Next.js app with typescript.
+# Twilio Video - Quickstart _Lite_
 
-Next.js and Paste have built-in TypeScript declarations, so we'll get autocompletion for their modules straight away.
+This application is aimed at standing up a 1:1 video room solution rapidly, by utilizing:
 
-We are connecting the Next.js `_app.tsx` with `Paste`'s Theme Provider so the pages can have app-wide styles.
+- [Twilio Video JS SDK](https://www.twilio.com/docs/video/javascript)
+- [React + TypeScript](https://reactjs.org/)
+- [Next JS](https://nextjs.org/)
+- [Twilio Paste](https://paste.twilio.design/)
 
-## Deploy your own
+The repository was started with [this template](https://github.com/twilio-labs/paste/tree/main/packages/paste-nextjs-template) provided by [Twilio Labs](https://www.twilio.com/labs).
 
-Deploy the example using [Vercel](https://vercel.com):
+---
 
-[![Edit paste-cra in Codesandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/twilio-labs/paste-nextjs)
+## Functionality Overview
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/twilio-labs/paste-nextjs/tree/main)
+TODO: insert summary & screenshots
 
-[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/twilio-labs/paste-nextjs)
+- **Pre-Session Screen** - currently shows the Video Room code prior to joining; would like to add in PreFlight checks and audio/video device configuration
+- **Video Room UI** - shows the _remote_ and _local_ participants, with options to toggle the microphone & camera on/off, share screen, and disconnect from the room
+- **Post Call UI** - an interface to display after the call has concluded or the participant leaves the room (e.g. disposition, feedback)
 
-## How to use
+---
+
+### Twilio Account Settings
+
+Before we begin, we need to collect all the config values we need to run this quickstart app:
+
+| Config&nbsp;Value | Description                                                                                                                          |
+| :---------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| Account&nbsp;Sid  | Your primary Twilio account identifier - find this [in the Console](https://www.twilio.com/console).                                 |
+| Auth Token        | Used to create an API key for future CLI access to your Twilio Account - find this [in the Console](https://www.twilio.com/console). |
+
+---
+
+## Local Development
+
+After the above requirements have been met:
+
+1. Clone this repository.
+
+   ```bash
+   git clone git@github.com:mschmitt19/twilio-video-react-quickstart-lite.git
+   ```
+
+2. Install dependencies.
+
+   ```bash
+   yarn
+   ```
+
+3. [Deploy your Twilio Function](#twilio-serverless-deployment).
+
+## Twilio Serverless Deployment
+
+TODO: insert instructions for serverless deployment.
+
+---
+
+## Changelog
+
+### 1.0.0
+
+**August 30, 2022**
+
+- Updated README.
+
+## Disclaimer
+
+This software is to be considered "sample code", a Type B Deliverable, and is delivered "as-is" to the user. Twilio bears no responsibility to support the use or implementation of this software.
+
+---
+
+## Appendix
 
 ### Using `create-next-app`
 
